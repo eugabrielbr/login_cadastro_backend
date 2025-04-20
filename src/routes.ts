@@ -3,6 +3,7 @@ import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply } f
 
 export async function routes(fastify: FastifyInstance, option: FastifyPluginOptions) {
 
+    
     fastify.get("/teste", async (request: FastifyRequest, reply:FastifyReply) => {
         return {ok: "funcionando"}
     })
