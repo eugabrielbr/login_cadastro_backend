@@ -4,9 +4,8 @@ import {routes} from "./routes"
 
 const app = Fastify({logger:true})
 
-// PAROU MINUTO 12:40
 
-const start = async () => {
+const start = async() => {
 
     // habilitando rotas e cors 
     await app.register(cors) 
