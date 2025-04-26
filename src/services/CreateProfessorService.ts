@@ -1,4 +1,5 @@
 import prismaClient from "../prismadb";
+import bcrypt from 'bcryptjs';
 
 
 interface solicitacao {
@@ -17,6 +18,8 @@ class CreateProfessorService{
 
             throw new Error("Preencha todos os campos")
         }
+
+        const senhaHash = await bcrypt.hash(senha, 8);
         
         const banco = await prismaClient.professor.create({
 
@@ -24,7 +27,7 @@ class CreateProfessorService{
             nome,
             email,
             cpf,
-            senha
+            senha: senhaHash
 
           }  
         })
