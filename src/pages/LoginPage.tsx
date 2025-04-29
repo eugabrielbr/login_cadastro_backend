@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Box,TextField,Button,Link,IconButton,InputAdornment} from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const backgroundImageUrl = '/professora.png';
 const logo = '/image.png';
@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [senha, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   const handleLogin = () => {
@@ -30,9 +30,9 @@ const LoginPage: React.FC = () => {
       })
       .then((data) => {
         console.log('Login bem-sucedido:', data);
-        alert('Login realizado com sucesso!');
-       // navigate('/dashboard');
+        navigate('/login-sucesso');
       })
+      
       .catch((error) => {
         console.error('Erro no login:', error);
         alert('Erro no login: ' + error.message); // Exibe o erro no alert para detalhes
