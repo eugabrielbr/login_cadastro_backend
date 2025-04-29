@@ -1,12 +1,12 @@
-// src/pages/LoginSucessoPage.tsx
 import React from 'react';
 import { Button, Box, Typography } from '@mui/material';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginSucessoPage: React.FC = () => {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
+    navigate('/login'); 
   };
 
   return (
