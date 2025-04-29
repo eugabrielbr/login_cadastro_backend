@@ -1,4 +1,4 @@
-import { FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyRequest, FastifyReply, } from 'fastify';
 import { AuthService } from '../services/AuthService';
 
 class AuthController {
@@ -8,9 +8,10 @@ class AuthController {
 
     try {
       const response = await authService.execute({ email, senha });
+      const token = await reply.jwtSign({ id: response.id });
 
       // sucesso em formato JSON
-      reply.send({ message: 'Login feito com sucesso!', data: response });
+      reply.send({ message: 'Login feito com sucesso!', data: token });
     } catch (error) {
       // Verifica se o erro é uma instância de Error
       if (error instanceof Error) {

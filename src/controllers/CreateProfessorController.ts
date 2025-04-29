@@ -11,7 +11,13 @@ class CreateProfessorController {
 
         const response = await professorService.execute({nome,email,cpf,senha})
 
-        reply.send(response)
+        const data = {
+            nome: nome,
+            email: email,
+            cpf: cpf
+        }
+
+        reply.send({ message: 'Cadastro feito com sucesso!', data: data })
     } 
 }
 
