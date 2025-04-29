@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
       })
       .then((data) => {
         console.log('Login bem-sucedido:', data);
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', data.data);
         navigate('/login-sucesso');
       })
       
